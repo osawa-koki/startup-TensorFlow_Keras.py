@@ -23,5 +23,29 @@ def main():
     model = model_train(x_train, y_train)
     model_eval(model, x_test, y_test)
 
+def model_train():
+    model = Sequential()
+    model.add(Conv2D(32, (3, 3), padding="same", input_shape=x_train[1:]))
+    model.add(Activation("relu"))
+    model.add(Conv2D(32, (3, 3)))
+    model.add(Activation("relu"))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
+    
+    model.add(Conv2D(64, (3, 3), padding="same"))
+    model.add(Activation("relu"))
+    model.add(Conv2D(64, (3, 3)))
+    model.add(Activation("relu"))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
+    
+    model.add(Flatten())
+    model.add(Dense(512))
+    model.add(Activation("relu"))
+    model.add(Dropout(0.5))
+    model.add(Dense(3))
+    model.add(Activation("softmax"))
 
-
+    opt = keras.optimizer.rmsprop(lr = 0.0001, decay = 1e-6)
+    
+    model.compile(loss = "categorical_crossentropy", optimizer = opt, metrics = ["accuracy"])
