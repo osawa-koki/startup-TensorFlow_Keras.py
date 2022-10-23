@@ -3,6 +3,7 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras.utils import np_utils
 import numpy as np
+import tensorflow
 
 # 対象のデータを列挙
 classes = ["monkey", "boar", "crow"]
@@ -11,7 +12,7 @@ image_size = 50
 
 # メイン処理
 def main():
-    x_train, x_test, y_train, y_test = np.load("./dataware/array_converted/animal.npy")
+    x_train, x_test, y_train, y_test = np.load("./dataware/array_converted/animal.npy", allow_pickle=True)
     # 「0-256」から「0-1」の範囲へ変換 
     x_train = x_train.astype("float") / 256
     x_test = x_test.astype("float") / 256
@@ -46,7 +47,7 @@ def model_train(x, y):
     model.add(Dense(3))
     model.add(Activation("softmax"))
 
-    opt = keras.optimizer.rmsprop(lr = 0.0001, decay = 1e-6)
+    opt = tensorflow.keras.optimizers.RMSprop(lr = 0.0001, decay = 1e-6)
     model.compile(loss = "categorical_crossentropy", optimizer = opt, metrics = ["accuracy"])
     model.fit(x, y, batch_size = 32, nb_epoch = 100)
     model.save("./dataware/model/animal_cnn.hs")
