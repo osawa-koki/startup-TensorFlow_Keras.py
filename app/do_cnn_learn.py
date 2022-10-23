@@ -1,5 +1,5 @@
 from keras.model import Sequential
-from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras.utils import np_utils
 import numpy as np
@@ -22,4 +22,6 @@ def main():
 
     model = model_train(x_train, y_train)
     model_eval(model, x_test, y_test)
+
+
 
