@@ -37,4 +37,4 @@ Y = np.array(Y)
 # 機械学習のトレーニング用と評価用に分類
 x_train, x_test, y_train, y_test = model_selection.train_test_split(X, Y)
 xy = (x_train, x_test, y_train, y_test)
-np.save("./dataware/array_converted/animal.npy")
+np.save("./dataware/array_converted/animal.npy", xy)
