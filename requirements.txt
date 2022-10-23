@@ -1,3 +1,4 @@
 flickrapi
 python-dotenv
 pillow
+sklearn
