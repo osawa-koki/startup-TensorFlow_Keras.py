@@ -39,5 +39,15 @@ photos = result["photos"]
 if DEBUG:
     pprint(photos)
 
-
-
+for i, photo in enumerate(photos["photo"]):
+    # 保存対象のURLを取得
+    url_q = photo["url_q"]
+    # 保存先のパスを作成
+    file_path = "{}/{}.jpg".format(DOWNLOAD_TO, photo["id"])
+    # 既に存在すればスキップ
+    if os.path.exists(file_path):
+        continue
+    # データの保存
+    urlretrieve(url_q, file_path)
+    # スリープ処理
+    time.sleep(WAIT_TIME)
