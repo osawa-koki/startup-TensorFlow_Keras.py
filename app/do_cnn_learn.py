@@ -1,8 +1,9 @@
-from keras.model import Sequential
+from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras.utils import np_utils
 import numpy as np
+import keras
 import tensorflow
 
 # 対象のデータを列挙
@@ -26,7 +27,7 @@ def main():
 
 def model_train(x, y):
     model = Sequential()
-    model.add(Conv2D(32, (3, 3), padding="same", input_shape=x_train[1:]))
+    model.add(Conv2D(32, (3, 3), padding="same", input_shape=x.shape[1:]))
     model.add(Activation("relu"))
     model.add(Conv2D(32, (3, 3)))
     model.add(Activation("relu"))
@@ -49,14 +50,14 @@ def model_train(x, y):
 
     opt = tensorflow.keras.optimizers.RMSprop(lr = 0.0001, decay = 1e-6)
     model.compile(loss = "categorical_crossentropy", optimizer = opt, metrics = ["accuracy"])
-    model.fit(x, y, batch_size = 32, nb_epoch = 100)
+    model.fit(x, y, batch_size = 32, epochs = 100)
     model.save("./dataware/model/animal_cnn.hs")
     return model
 
 def model_eval(model, x, y):
     scores = model.evaluate(x, y, verbose = 1)
-    print("Test loss: " + scores[0])
-    print("Test accuracy: " + scores[1])
+    print("Test loss: {}".format(scores[0]))
+    print("Test accuracy: {}".format(scores[1]))
     
 if __name__ == "__main__":
     main()
