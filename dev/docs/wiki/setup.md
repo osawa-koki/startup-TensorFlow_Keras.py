@@ -14,4 +14,7 @@ conda init bash
 
 # 仮想環境の有効化
 conda activate ★仮想環境名:tf2★
+
+# TensorFlowのインストール
+conda install tensorflow
 ```
