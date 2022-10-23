@@ -25,7 +25,7 @@ for index, _class in enumerate(classes):
         # 画像をリサイズ
         image = image.resize((image_size, image_size))
         # 画像を配列形式に変換して
-        data = np.asarray(image)
+        data = np.asarray(image, dtype = object)
         # 用意してある配列にプッシュ
         X.append(data)
         Y.append(index)
