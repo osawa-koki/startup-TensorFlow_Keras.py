@@ -17,4 +17,10 @@ conda activate ★仮想環境名:tf2★
 
 # TensorFlowのインストール
 conda install tensorflow
+
+# 環境の有効化
+source activate tf2
+
+# pipパッケージのインストール
+pip install -r requirements.txt
 ```
