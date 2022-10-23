@@ -52,5 +52,11 @@ def model_train(x, y):
     model.save("./dataware/model/animal_cnn.hs")
     return model
 
-
+def model_eval(model, x, y):
+    scores = model.evaluate(x, y, verbose = 1)
+    print("Test loss: " + scores[0])
+    print("Test accuracy: " + scores[1])
+    
+if __name__ == "__main__":
+    main()
 
