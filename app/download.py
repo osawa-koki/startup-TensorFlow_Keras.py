@@ -34,5 +34,10 @@ result = flickr.photos.search(
 )
 
 photos = result["photos"]
-pprint(photos)
+
+# JSON形式で表示
+if DEBUG:
+    pprint(photos)
+
+
 
