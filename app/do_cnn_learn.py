@@ -23,7 +23,7 @@ def main():
     model = model_train(x_train, y_train)
     model_eval(model, x_test, y_test)
 
-def model_train():
+def model_train(x, y):
     model = Sequential()
     model.add(Conv2D(32, (3, 3), padding="same", input_shape=x_train[1:]))
     model.add(Activation("relu"))
@@ -49,3 +49,9 @@ def model_train():
     opt = keras.optimizer.rmsprop(lr = 0.0001, decay = 1e-6)
     
     model.compile(loss = "categorical_crossentropy", optimizer = opt, metrics = ["accuracy"])
+    
+    model.fit(x, y, batch_size = 32, nb_epoch = 100)
+    
+    model.save("./dataware/model/animal_cnn.hs")
+
+
