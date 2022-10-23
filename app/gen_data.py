@@ -33,4 +33,5 @@ for index, _class in enumerate(classes):
 # scikit-learnで扱いやすい形に変換
 X = np.array(X)
 Y = np.array(Y)
-        
+
+# 機械学習のトレーニング用と評価用に分類
