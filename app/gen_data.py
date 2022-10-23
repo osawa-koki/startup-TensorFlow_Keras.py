@@ -1,7 +1,7 @@
 from PIL import Image
 import os, glob
 import numpy as np
-import sklearn.model_selection as cross_validation
+from sklearn import model_selection
 
 # 対象のデータを列挙
 classes = ["monkey", "boar", "crow"]
