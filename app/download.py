@@ -17,3 +17,11 @@ if DEBUG:
   print("FLICKR_KEY -> {}".format(FLICKR_KEY))
   print("FLICKR_SECRET -> {}".format(FLICKR_SECRET))
   
+# 各種設定
+WAIT_TIME = 1
+ANIMAL_NAME = sys.argv[1]
+DOWNLOAD_TO = "./dataware/collected/animalai/{}".format(ANIMAL_NAME)
+
+
+
+
