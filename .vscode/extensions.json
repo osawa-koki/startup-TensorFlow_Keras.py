@@ -2,6 +2,7 @@
   "recommendations": [
     "ms-python.python",
     "tabnine.tabnine-vscode",
-    "DavidAnson.vscode-markdownlint"
+    "davidanson.vscode-markdownlint",
+    "eamodio.gitlens"
   ]
 }
