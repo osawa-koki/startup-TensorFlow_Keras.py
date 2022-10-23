@@ -3,6 +3,7 @@
     "ms-python.python",
     "tabnine.tabnine-vscode",
     "davidanson.vscode-markdownlint",
-    "eamodio.gitlens"
+    "eamodio.gitlens",
+    "ms-toolsai.jupyter"
   ]
 }
