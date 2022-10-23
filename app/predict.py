@@ -1,4 +1,4 @@
-from keras.models import Sequential
+from keras.models import Sequential, load_model
 from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras.utils import np_utils
@@ -7,6 +7,7 @@ import keras
 import tensorflow
 from PIL import Image
 from sklearn import model_selection
+import sys
 
 # 対象のデータを列挙
 classes = ["monkey", "boar", "crow"]
@@ -42,4 +43,21 @@ def build_model():
     model = load_model("./dataware/model/animal_cnn.hs")
     return model
 
+def main():
+    image = Image.open(sys.argv[1])
+    image = image.convert("RGB")
+    image = image.resize((image_size, image_size))
+    data = np.asarray(image)
+    x = []
+    x.append(data)
+    x = np.array(x)
+    model = build_model()
+    
+    result = model.predict([x])[0]
+    predicted = result.argmax()
+    percentage = int(result[predicted] * 100)
+    print("{} ({})".format(classes[predicted], percentage))
+
+if __name__ == "__main__":
+    main()
 
