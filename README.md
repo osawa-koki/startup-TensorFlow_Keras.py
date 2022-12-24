@@ -15,6 +15,10 @@ TensorFlowとKerasの学習目的プログラム。
   - predict.py (実際に予測するプログラム)
 ```
 
+## 環境構築
+
+「./.development/docs/wiki/setup.md」を参照。  
+
 ## 実行方法
 
 まずは、学習用の画像ダウンロードする♪  
