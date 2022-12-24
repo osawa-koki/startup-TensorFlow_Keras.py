@@ -14,7 +14,6 @@ classes = ["monkey", "boar", "crow"]
 num_classes = len(classes)
 image_size = 50
 
-
 def build_model():
     model = Sequential()
     model.add(Conv2D(32, (3, 3), padding="same", input_shape=(50, 50, 3)))
@@ -23,14 +22,14 @@ def build_model():
     model.add(Activation("relu"))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Dropout(0.25))
-    
+
     model.add(Conv2D(64, (3, 3), padding="same"))
     model.add(Activation("relu"))
     model.add(Conv2D(64, (3, 3)))
     model.add(Activation("relu"))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Dropout(0.25))
-    
+
     model.add(Flatten())
     model.add(Dense(512))
     model.add(Activation("relu"))
@@ -52,7 +51,7 @@ def main():
     x.append(data)
     x = np.array(x)
     model = build_model()
-    
+
     result = model.predict([x])[0]
     predicted = result.argmax()
     percentage = int(result[predicted] * 100)
@@ -60,4 +59,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

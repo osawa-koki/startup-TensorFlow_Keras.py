@@ -61,4 +61,3 @@ def model_eval(model, x, y):
     
 if __name__ == "__main__":
     main()
-
