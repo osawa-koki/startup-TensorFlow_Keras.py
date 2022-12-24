@@ -41,4 +41,5 @@ python predict.py <判定させる画像へのパス>
 ```
 
 ## 参考文献
+
 - <https://www.udemy.com/share/101Xia3@8z3Nqzdi-gXDnc_uDlbyWHwoie1Isk6Sdde_Khv91fSVIcdjBD7CqYLrKwfIGc3o2A==/>
