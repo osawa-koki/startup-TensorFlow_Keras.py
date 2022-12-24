@@ -8,6 +8,7 @@ import tensorflow
 from PIL import Image
 from sklearn import model_selection
 import sys
+import os
 
 # 対象のデータを列挙
 classes = ["monkey", "boar", "crow"]
@@ -55,7 +56,10 @@ def main():
     result = model.predict([x])[0]
     predicted = result.argmax()
     percentage = int(result[predicted] * 100)
-    print("{} ({})".format(classes[predicted], percentage))
+    os.system('clear')
+    print("===== ===== =====")
+    print("    {0} ({1})".format(classes[predicted], percentage))
+    print("===== ===== =====")
 
 if __name__ == "__main__":
     main()
