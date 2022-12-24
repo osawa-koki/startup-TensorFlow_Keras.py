@@ -2,5 +2,6 @@ flickrapi
 python-dotenv
 pillow
 sklearn
+tensorflow
 keras
 h5py
