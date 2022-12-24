@@ -18,6 +18,9 @@ TensorFlowとKerasの学習目的プログラム。
 ## 環境構築
 
 「./.development/docs/wiki/setup.md」を参照。  
+またDevContainerでDocker環境を構築しています。  
+さらにその上にAnacondaを構築するというAnaconda On Docker状態です。  
+練習用ということで特に意味はないです、、、  
 
 ## 実行方法
 
